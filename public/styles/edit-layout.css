@@ -1,0 +1,194 @@
+.company-header {
+    margin-bottom: 20px;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+}
+
+.company-info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    max-width: fit-content;
+    width: 100%;
+}
+
+.logo-section {
+    flex-shrink: 0;
+}
+
+.company-logo {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+}
+
+.company-details {
+    flex: 1;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.company-name-line {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    margin-bottom: 1px;
+    line-height: 1;
+}
+
+.company-name {
+    font-family: "Saira Stencil One", sans-serif;
+    font-size: 24px;
+    font-weight: 900;
+    color: #062d70;
+    margin: 0;
+    letter-spacing: 2.5px;
+    line-height: 1;
+}
+
+.company-reg {
+    font-size: 10px;
+    color: #333;
+    margin: 0;
+    padding-bottom: 4px;
+}
+
+.company-address {
+    font-size: 12px;
+    color: #333;
+    margin-bottom: 1px;
+    line-height: 1.1;
+}
+
+.company-contact {
+    font-size: 12px;
+    color: #333;
+    margin-bottom: 0px;
+}
+
+.company-contact span {
+    margin-right: 15px;
+}
+
+.company-gst {
+    font-size: 12px;
+    color: #333;
+    margin-top: 0px;
+}
+
+.section-2 {
+    margin-bottom: 55px;
+}
+
+.section-2 h3 {
+    font-size: 16px;
+    margin-bottom: 15px;
+    color: #333;
+    text-decoration: underline !important;
+}
+
+.purpose-options {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.purpose-column {
+    flex: 1;
+    min-width: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.section-1 {
+    margin-bottom: 20px;
+    padding: 35px 0;
+}
+
+.section-layout {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+}
+
+.left-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+.right-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-end;
+}
+
+.left-section .info-field,
+.right-section .info2-field {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.left-section .info-field {
+    justify-content: flex-start;
+}
+
+.right-section .info2-field {
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.info2-field {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.info2-field label {
+    min-width: 80px;
+}
+
+.text-input {
+    width: 150px;
+    height: 32px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 6px 8px;
+    font-size: 14px;
+    background-color: white;
+    transition: border-color 0.3s ease;
+}
+
+.text-input:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+.info-field {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.info-field label {
+    min-width: 120px;
+    text-align: left;
+}
+
+.info2-field label {
+    min-width: 100px;
+    text-align: left;
+}
+

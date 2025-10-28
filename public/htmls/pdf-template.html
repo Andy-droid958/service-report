@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Report PDF</title>
+    <link href="https://fonts.googleapis.com/css2?family=Saira+Stencil+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/pdf-template.css">
+</head>
+
+<body>
+    <div class="page">
+        <div class="company-header">
+            <div class="company-info">
+                <div class="logo-section">
+                    <img src="C:/Service Report/public/statics/Radical Logo.png" alt="Radical Control" class="company-logo">
+                </div>
+                <div class="company-details">
+                    <div class="company-name-line">
+                        <h2 class="company-name">RADICAL CONTROL SDN BHD</h2>
+                        <span class="company-reg">(801445-P)</span>
+                    </div>
+                    <div class="company-address">
+                        <div>No. 18, Jalan BP 6/13, Bandar Bukit Puchong, 47120 Puchong,</div>
+                        <div>Selangor Darul Ehsan, Malaysia</div>
+                    </div>
+                    <div class="company-contact">
+                        <span>Tel: +603-8052 6989</span>
+                        <span>Fax: +603-8052 7989</span>
+                        <span>Email: sales@rcecontrol.com</span>
+                    </div>
+                    <div class="company-gst">(GST No: 000907784192)</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="report-header">
+            <h1>SERVICE REPORT</h1>
+        </div>
+
+        <div class="section-1">
+            <div class="section-layout">
+                <div class="left-section">
+                    <div class="info-field">
+                        <label for="customer">Customer:</label>
+                        <div class="input-line"></div>
+                    </div>
+                    <div class="info-field">
+                        <label for="attn">Attn:</label>
+                        <div class="input-line"></div>
+                    </div>
+                    <div class="info-field">
+                        <label for="projectName">Project Name:</label>
+                        <div class="input-line"></div>
+                    </div>
+                    <div class="info-field">
+                        <label for="yourRef">Your Ref:</label>
+                        <div class="input-line"></div>
+                    </div>
+                </div>
+                <div class="right-section">
+                    <div class="info2-field">
+                        <label for="reportNo">Report No:</label>
+                        <div class="input-line"></div>
+                    </div>
+                    <div class="info2-field">
+                        <label for="date">Date:</label>
+                        <div class="input-line"></div>
+                    </div>
+                    <div class="info2-field">
+                        <label for="serviceBy">Service by:</label>
+                        <div class="input-line"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-2">
+            <h3>Purpose of Visit</h3>
+            <div class="purpose-options">
+                <div class="purpose-column">
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="machine-delivery">
+                        <label for="machine-delivery">Machine Delivery</label>
+                    </div>
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="commissioning">
+                        <label for="commissioning">Commissioning / Installation</label>
+                    </div>
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="maintenance">
+                        <label for="maintenance">Maintenance / Fine tuning</label>
+                    </div>
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="calibration">
+                        <label for="calibration">Calibration / Inspection</label>
+                    </div>
+                </div>
+                <div class="purpose-column">
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="repair">
+                        <label for="repair">Repair</label>
+                    </div>
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="troubleshooting">
+                        <label for="troubleshooting">Troubleshooting</label>
+                    </div>
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="engineering">
+                        <label for="engineering">Engineering</label>
+                    </div>
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="others">
+                        <label for="others">Others</label>
+                        <div class="input-line inline-input"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-device">
+            <h3>Site Information:</h3>
+            <div class="device-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>System / Machine / Line Name</th>
+                            <th>PLC / HMI</th>
+                            <th>Brand</th>
+                            <th>Model Number</th>
+                            <th>Remarks</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="section-4">
+            <h3>Details:</h3>
+            <div id="detailsContainer">
+                <div class="details-card" data-details-index="1">
+                    <div class="details-card-content">
+                        <div class="details-table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Out Time</th>
+                                        <th>Start Time</th>
+                                        <th>End Time</th>
+                                        <th>In Time</th>
+                                        <th>Travel Time</th>
+                                        <th>Work Time</th>
+                                        <th>Over Time</th>
+                                        <th>Mil</th>
+                                        <th>Toll</th>
+                                        <th>Hotel</th>
+                                        <th>Others</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="detailsTableBody">
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="description-field">
+                            <h5 class="details-subtitle">Details of Problem</h5>
+                            <div class="text-area-lines">
+                                <div class="line"></div>
+                                <div class="line"></div>
+                                <div class="line"></div>
+                            </div>
+                        </div>
+            <div class="description-field">
+                <h5 class="details-subtitle">Description of Job Done</h5>
+                <div class="text-area-lines">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+            </div>
+                        <div class="description-field">
+                            <h5 class="details-subtitle">Photos / Images (Optional)</h5>
+                            <div class="image-upload-container">
+                                <div class="image-upload-area">
+                                    <img src="C:/Service Report/public/statics/Upload Icon.png" alt="Upload" class="upload-icon">
+                                    <span class="upload-text">Images uploaded</span>
+                                    <div class="upload-info">
+                                        <small>Max 10 files, 50MB each. Supported: JPEG, PNG, GIF, WebP, BMP, TIFF</small>
+                                    </div>
+                                </div>
+                                <div class="image-preview-container"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-5">
+            <div class="confirmation-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="confirmation-header">Customer's Confirmation</th>
+                            <th class="confirmation-header">For Office Use</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="confirmation-content">
+                                <div class="confirmation-statement">
+                                    I, hereby confirm that the above service have been carried out to my satisfaction.
+                                </div>
+                                <div class="confirmation-section-content">
+                                    <div class="confirmation-row">
+                                        <div class="confirmation-label">Signature:</div>
+                                        <div class="signature-line"></div>
+                                    </div>
+                                    <div class="confirmation-row">
+                                        <div class="confirmation-label">Name:</div>
+                                        <div class="signature-line"></div>
+                                    </div>
+                                    <div class="confirmation-row">
+                                        <div class="confirmation-label">Date:</div>
+                                        <div class="signature-line"></div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="confirmation-content">
+                                <div class="general-remarks-text">
+                                    General Remarks.
+                                </div>
+                                <div class="confirmation-section-content">
+                                    <div class="confirmation-row">
+                                        <div class="confirmation-label">Approved By:</div>
+                                        <div class="signature-line"></div>
+                                    </div>
+                                    <div class="confirmation-row">
+                                        <div class="confirmation-label">Name:</div>
+                                        <div class="signature-line"></div>
+                                    </div>
+                                    <div class="confirmation-row">
+                                        <div class="confirmation-label">Date:</div>
+                                        <div class="signature-line"></div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

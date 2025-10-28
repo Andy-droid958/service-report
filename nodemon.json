@@ -1,0 +1,26 @@
+{
+  "verbose": false,
+  "watch": [
+    "*.js",
+    "controllers/**/*.js",
+    "models/**/*.js",
+    "routes/**/*.js",
+    "utils/**/*.js",
+    "middleware/**/*.js",
+    "config/**/*.js"
+  ],
+  "ignore": [
+    "node_modules/**/*",
+    "uploads/**/*",
+    "logs/**/*",
+    "public/**/*",
+    ".git/**/*"
+  ],
+  "delay": 2000,
+  "signal": "SIGUSR2",
+  "events": {
+    "restart": "echo Restarting cluster...",
+    "crash": "echo Cluster crashed, waiting for file changes..."
+  }
+}
+

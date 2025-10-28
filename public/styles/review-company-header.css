@@ -1,0 +1,96 @@
+.company-header {
+    margin-bottom: 20px;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+}
+
+.company-info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    max-width: fit-content;
+}
+
+.logo-section {
+    flex-shrink: 0;
+}
+
+.company-logo {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+}
+
+.company-details {
+    flex: 1;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.company-name-line {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    margin-bottom: 1px;
+    line-height: 1;
+}
+
+.company-name {
+    font-family: "Saira Stencil One", sans-serif;
+    font-size: 24px;
+    font-weight: 900;
+    color: #062d70;
+    margin: 0;
+    letter-spacing: 2.5px;
+    line-height: 1;
+}
+
+.company-reg {
+    font-size: 10px;
+    font-weight: bold;
+    color: #333;
+    margin: 0;
+    padding-bottom: 4px;
+}
+
+.company-address {
+    font-size: 12px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 1px;
+    line-height: 1.1;
+}
+
+.company-contact {
+    font-size: 12px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 0px;
+}
+
+.company-contact span {
+    margin-right: 15px;
+}
+
+.company-gst {
+    font-size: 12px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 0px;
+}
+
+.report-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.report-header h1 {
+    font-size: 32px;
+    font-weight: bold;
+    color: #333;
+    margin: 0;
+}
+

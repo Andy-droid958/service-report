@@ -1,0 +1,93 @@
+.form-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #ccc;
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 120px;
+}
+
+.btn-submit {
+    background-color: #007bff;
+    color: white;
+}
+
+.btn-submit:hover {
+    background-color: #0056b3;
+    color: white;
+    transform: translateY(-1px);
+}
+
+.btn-submit:active {
+    background-color: #004085;
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) inset;
+}
+
+.btn-review {
+    background-color: #dc3545;
+    color: white;
+}
+
+.btn-review:hover {
+    background-color: #c82333;
+    color: white;
+    transform: translateY(-1px);
+}
+
+.btn-review:active {
+    background-color: #a71d2a;
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) inset;
+}
+
+.btn-create {
+    background-color: #28a745;
+    color: white;
+}
+
+.btn-create:hover {
+    background-color: #218838;
+    color: white;
+    transform: translateY(-1px);
+}
+
+.btn-create:active {
+    background-color: #1e7e34;
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) inset;
+}
+
+.btn-search {
+    background-color: #6f42c1;
+    color: white;
+}
+
+.btn-search:hover {
+    background-color: #5a32a3;
+    color: white;
+    transform: translateY(-1px);
+}
+
+.btn-search:active {
+    background-color: #4c2a8f;
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) inset;
+}
+
+.btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+

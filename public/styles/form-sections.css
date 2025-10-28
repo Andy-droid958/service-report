@@ -1,0 +1,389 @@
+.section-1 {
+    margin-bottom: 20px;
+    padding: 35px 0;
+}
+
+.section-layout {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+}
+
+.left-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+.right-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-end;
+}
+
+@media (max-width: 768px) {
+    .section-1 {
+        padding: 20px 0;
+        margin-bottom: 15px;
+    }
+    
+    .section-layout {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .left-section,
+    .right-section {
+        width: 100%;
+        align-items: stretch;
+    }
+    
+    .right-section {
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-1 {
+        padding: 15px 0;
+        margin-bottom: 10px;
+    }
+    
+    .section-layout {
+        gap: 15px;
+    }
+}
+
+.left-section .info-field,
+.right-section .info2-field {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.left-section .info-field {
+    justify-content: flex-start;
+}
+
+.right-section .info2-field {
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.info2-field {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.info2-field label {
+    font-weight: bold;
+    min-width: 80px;
+}
+
+.text-input {
+    width: 150px;
+    height: 32px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 6px 8px;
+    font-size: 14px;
+    background-color: white;
+    transition: border-color 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .text-input {
+        width: 100%;
+        max-width: 300px;
+        height: 36px;
+        font-size: 16px; 
+    }
+    
+    .info-field,
+    .info2-field {
+        flex-direction: column;
+        align-items: flex-start !important;
+        gap: 5px;
+    }
+    
+    .info-field label,
+    .info2-field label {
+        min-width: auto;
+        width: 100%;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .text-input {
+        height: 40px;
+        font-size: 16px;
+        padding: 8px 10px;
+    }
+    
+    .info-field label,
+    .info2-field label {
+        font-size: 13px;
+    }
+}
+
+.text-input:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+.info-field {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.info-field label {
+    font-weight: bold;
+    min-width: 120px;
+    text-align: left;
+}
+
+.info2-field label {
+    font-weight: bold;
+    min-width: 100px;
+    text-align: left;
+}
+
+.section-2 {
+    margin-bottom: 55px;
+}
+
+.section-2 h3 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #333;
+    text-decoration: underline !important;
+}
+
+.purpose-options {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.purpose-column {
+    flex: 1;
+    min-width: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+@media (max-width: 768px) {
+    .section-2 {
+        margin-bottom: 30px;
+    }
+    
+    .section-2 h3 {
+        font-size: 15px;
+        margin-bottom: 12px;
+    }
+    
+    .purpose-options {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .purpose-column {
+        flex: none;
+        min-width: auto;
+    }
+    
+    .checkbox-option input[type="radio"] {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .checkbox-option label {
+        font-size: 15px;
+        padding-left: 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-2 {
+        margin-bottom: 20px;
+    }
+    
+    .section-2 h3 {
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+    
+    .purpose-options {
+        gap: 6px;
+    }
+    
+    .checkbox-option input[type="radio"] {
+        width: 22px;
+        height: 22px;
+    }
+    
+    .checkbox-option label {
+        font-size: 14px;
+        padding-left: 8px;
+    }
+}
+
+.checkbox-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.checkbox-option input[type="radio"] {
+    width: 16px;
+    height: 16px;
+    accent-color: #333;
+}
+
+.checkbox-option label {
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.checkbox-option {
+    position: relative;
+}
+
+.checkbox-option:has(#othersTextContainer:not([style*="display: none"])) {
+    margin-bottom: 50px;
+}
+
+.others-text-container {
+    position: absolute;
+    top: 100%;
+    left: 20px;
+    right: 0;
+    margin-top: 5px;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    z-index: 10;
+    box-shadow: none;
+}
+
+.others-text-container .text-input {
+    width: 100%;
+    max-width: 250px;
+    font-size: 12px;
+    padding: 4px 6px;
+}
+
+.section-3 {
+    margin-bottom: 55px;
+}
+
+.description-field {
+    margin-bottom: 20px;
+}
+
+.description-field h3 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+    text-decoration: underline !important;
+}
+
+.text-area {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    min-height: 80px;
+    max-height: 200px;
+    padding: 10px;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    resize: vertical;
+    overflow-y: auto;
+    background-color: white;
+    transition: border-color 0.3s ease;
+    width: 100%;
+    line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+    .section-3 {
+        margin-bottom: 30px;
+    }
+    
+    .description-field {
+        margin-bottom: 15px;
+    }
+    
+    .description-field h3 {
+        font-size: 15px;
+        margin-bottom: 8px;
+    }
+    
+    .text-area {
+        min-height: 100px;
+        max-height: 200px;
+        font-size: 16px; 
+        padding: 12px;
+        resize: vertical;
+        overflow-y: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-3 {
+        margin-bottom: 20px;
+    }
+    
+    .description-field {
+        margin-bottom: 12px;
+    }
+    
+    .description-field h3 {
+        font-size: 14px;
+        margin-bottom: 6px;
+    }
+    
+    .text-area {
+        min-height: 120px;
+        max-height: 220px;
+        font-size: 16px;
+        padding: 10px;
+        resize: vertical;
+        overflow-y: auto;
+    }
+}
+
+.text-area:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+.text-area::placeholder {
+    font-size: 14px;
+    color: #999;
+}
+
+@media (max-width: 768px) {
+    .text-area::placeholder {
+        font-size: 16px; 
+    }
+}
+
+@media (max-width: 480px) {
+    .text-area::placeholder {
+        font-size: 16px;
+    }
+}

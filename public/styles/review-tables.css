@@ -1,0 +1,229 @@
+.section-4 {
+    margin-bottom: 35px;
+}
+
+#detailsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.details-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fafafa;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.section-4 h3 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #333;
+    text-decoration: underline !important;
+}
+
+.details-table {
+    overflow-x: auto;
+    margin-bottom: 20px;
+    position: relative;
+    overflow: visible;
+    max-width: 100%;
+}
+
+
+.details-table table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+}
+
+.details-table th,
+.details-table td {
+    padding: 4px 2px;
+    text-align: center;
+    min-width: 50px;
+    font-size: 10px;
+    border: 1px solid #333;
+}
+
+.details-table th {
+    background-color: #f0f0f0;
+    font-weight: bold;
+}
+
+.details-table td {
+    height: 30px;
+    padding: 2px;
+    position: relative;
+}
+
+.details-table tr {
+    position: relative;
+}
+
+.row-controls {
+    position: absolute;
+    left: -45px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: none;
+    gap: 3px;
+    z-index: 1000;
+    background: white;
+    padding: 4px;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    border: 1px solid #ddd;
+    pointer-events: auto;
+}
+
+.row-control-btn {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #ccc;
+    background: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    border-radius: 2px;
+    transition: all 0.2s ease;
+}
+
+.row-control-btn:hover {
+    background: #f0f0f0;
+    border-color: #999;
+}
+
+.add-btn {
+    color: #28a745;
+}
+
+.add-btn:hover {
+    background: #d4edda;
+}
+
+.delete-btn {
+    color: #dc3545;
+}
+
+.delete-btn:hover {
+    background: #f8d7da;
+}
+
+.row-controls {
+    display: flex !important;
+    position: static;
+    left: auto;
+    top: auto;
+    transform: none;
+    margin-top: 15px;
+    justify-content: center;
+    background: #f8f9fa;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #dee2e6;
+    gap: 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.details-table tr:hover .row-controls {
+    display: flex !important;
+}
+
+.table-input {
+    width: 100%;
+    height: 20px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    padding: 1px 2px;
+    font-size: 9px;
+    background-color: white;
+    text-align: center;
+}
+
+.table-input:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 1px rgba(0, 123, 255, 0.25);
+}
+
+.time-select {
+    width: 100%;
+    height: 20px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    padding: 1px 2px;
+    font-size: 9px;
+    background-color: white;
+    text-align: center;
+    scrollbar-width: none;
+    -ms-overflow-style: none; 
+}
+
+.time-select::-webkit-scrollbar {
+    display: none;
+}
+
+.time-select:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 1px rgba(0, 123, 255, 0.25);
+}
+
+.time-select:not([value="--"]):not([value=""]) {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: none;
+}
+
+.travel-time,
+.work-time,
+.overtime {
+    background-color: #f8f9fa;
+    color: #495057;
+    font-weight: bold;
+}
+
+.mil-input,
+.toll-input,
+.hotel-input {
+    text-align: right;
+    font-weight: bold;
+}
+
+.mil-input:focus,
+.toll-input:focus,
+.hotel-input:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 1px rgba(0, 123, 255, 0.25);
+}
+
+.others-input {
+    text-align: left;
+}
+
+.others-input:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 1px rgba(0, 123, 255, 0.25);
+}
+
+.details-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fafafa;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.details-card-content {
+    padding: 16px;
+}
+

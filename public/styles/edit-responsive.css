@@ -1,0 +1,911 @@
+@media (max-width: 1200px) {
+    .report-container {
+        width: 100%;
+        max-width: 100%;
+        padding: 20px;
+        margin: 100px auto 10px auto;
+        left: 0;
+        transform: none;
+    }
+    
+    .device-table {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch; 
+    }
+    
+    .device-table table {
+        min-width: 1000px;
+    }
+    
+    .details-table {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .details-table table {
+        min-width: 750px;
+    }
+    
+    .confirmation-section-content {
+        padding: 8px 0;
+        margin-top: 10px;
+    }
+    
+    .confirmation-row {
+        padding: 8px 0;
+        margin-bottom: 12px;
+    }
+    
+    .confirmation-row:last-child {
+        margin-bottom: 0;
+    }
+    
+    .confirmation-label {
+        font-weight: 600;
+        color: #495057;
+        font-size: 13px;
+        margin-bottom: 8px;
+        display: block;
+        text-align: left;
+    }
+    
+    .signature-line {
+        border-bottom: 1px solid #333;
+        flex: 1;
+        min-width: 80px;
+        height: 1.2em;
+        margin-left: 5px;
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 5px;
+    }
+    
+    .report-container {
+        width: 100%;
+        max-width: 100%;
+        padding: 15px;
+        margin: 100px auto 5px auto;
+        min-height: auto;
+        left: 0;
+        transform: none;
+    }
+    
+    .text-area::placeholder {
+        font-size: 16px; 
+    }
+    
+    .text-area {
+        min-height: 100px;
+        max-height: 200px;
+        font-size: 16px; 
+        padding: 12px;
+        resize: vertical;
+        overflow-y: auto;
+    }
+    
+    
+    .company-header {
+        padding: 10px;
+        margin-bottom: 15px;
+    }
+    
+    .company-info {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+    
+    .company-logo {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .company-details {
+        height: auto;
+        width: 100%;
+    }
+    
+    
+    .company-name {
+        font-size: 20px;
+        letter-spacing: 1.5px;
+    }
+    
+    .company-reg {
+        font-size: 9px;
+    }
+    
+    .company-address {
+        font-size: 11px;
+    }
+    
+    .company-contact {
+        font-size: 11px;
+    }
+    
+    .company-contact span {
+        margin-right: 10px;
+        display: block;
+        margin-bottom: 2px;
+    }
+    
+    .company-gst {
+        font-size: 11px;
+    }
+    
+    
+    .report-header {
+        margin-bottom: 15px;
+    }
+    
+    .report-header h1 {
+        font-size: 24px;
+    }
+    
+    
+    .section-2 {
+        margin-bottom: 30px;
+    }
+    
+    .section-2 h3 {
+        font-size: 15px;
+        margin-bottom: 12px;
+    }
+    
+    .purpose-options {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .purpose-column {
+        flex: none;
+        min-width: auto;
+    }
+    
+    .checkbox-option label {
+        font-size: 15px;
+        padding-left: 5px;
+    }
+    
+    
+    .section-1 {
+        padding: 20px 0;
+        margin-bottom: 15px;
+    }
+    
+    .section-layout {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .left-section,
+    .right-section {
+        width: 100%;
+        align-items: stretch;
+    }
+    
+    .right-section {
+        align-items: flex-start;
+    }
+    
+    
+    .text-input {
+        width: 100%;
+        max-width: 300px;
+        height: 36px;
+        font-size: 16px; 
+    }
+    
+    .info-field,
+    .info2-field {
+        flex-direction: column;
+        align-items: flex-start !important;
+        gap: 5px;
+    }
+    
+    .info-field label,
+    .info2-field label {
+        min-width: auto;
+        width: 100%;
+        font-size: 14px;
+    }
+    
+    
+    .section-device {
+        margin-bottom: 25px;
+    }
+    
+    .section-device h3 {
+        font-size: 15px;
+        margin-bottom: 12px;
+    }
+    
+    .device-table {
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+    }
+    
+    .device-table table {
+        font-size: 11px;
+        min-width: 800px;
+    }
+    
+    .device-table th,
+    .device-table td {
+        padding: 3px 1px;
+        font-size: 9px;
+        min-width: 40px;
+    }
+    
+    .device-input {
+        height: 18px;
+        font-size: 8px;
+        padding: 1px;
+    }
+    
+    .device-table tr:hover .row-controls {
+        display: flex !important;
+    }
+    
+    .device-table .row-control-btn {
+        width: 20px;
+        height: 20px;
+        font-size: 14px;
+    }
+    
+    .device-table .row-control-btn:hover {
+        background: #f0f0f0;
+        border-color: #999;
+    }
+    
+    
+    .section-4 {
+        margin-bottom: 25px;
+    }
+    
+    .section-4 h3 {
+        font-size: 15px;
+        margin-bottom: 12px;
+    }
+    
+    .details-card {
+        border-radius: 6px;
+    }
+    
+    .details-card-header {
+        padding: 10px 12px;
+    }
+    
+    .details-card-title {
+        font-size: 13px;
+    }
+    
+    .details-card-content {
+        padding: 12px;
+    }
+    
+    .details-subtitle {
+        font-size: 13px;
+    }
+    
+    
+    .details-table {
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+    }
+    
+    .details-table table {
+        font-size: 11px;
+        min-width: 800px;
+    }
+    
+    .details-table th,
+    .details-table td {
+        padding: 3px 1px;
+        font-size: 9px;
+        min-width: 40px;
+    }
+    
+    .table-input,
+    .time-select {
+        height: 18px;
+        font-size: 8px;
+        padding: 1px;
+    }
+    
+    .details-table tr:hover .row-controls {
+        display: flex !important;
+    }
+    
+    .row-control-btn {
+        width: 18px !important;
+        height: 18px !important;
+        min-width: 18px !important;
+        min-height: 18px !important;
+        max-width: 18px !important;
+        max-height: 18px !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        box-sizing: border-box !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        line-height: 1 !important;
+    }
+    
+    
+    .section-5 {
+        margin-top: 20px;
+        padding-top: 15px;
+    }
+    
+    .confirmation-table table {
+        font-size: 11px;
+    }
+    
+    .confirmation-header {
+        padding: 8px 6px;
+        font-size: 13px;
+    }
+    
+    .confirmation-content {
+        padding: 12px 8px;
+    }
+    
+    .confirmation-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+        padding: 8px 0;
+        margin-bottom: 10px;
+        min-height: 18px;
+    }
+    
+    .confirmation-row:last-child {
+        margin-bottom: 0;
+    }
+    
+    .confirmation-label {
+        min-width: auto;
+        font-size: 12px;
+        font-weight: 600;
+        color: #495057;
+        margin-bottom: 6px;
+        flex-shrink: 0;
+        white-space: nowrap;
+        text-align: left;
+        display: block;
+        width: 100%;
+    }
+    
+    .signature-line {
+        border-bottom: 1px solid #333;
+        flex: 1;
+        min-width: 80px;
+        height: 1.2em;
+        margin-left: 5px;
+        margin-top: 0;
+    }
+    
+    .confirmation-section-content {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        height: 100%;
+        justify-content: flex-start;
+        padding: 8px 0;
+        margin-top: 8px;
+    }
+    
+    .confirmation-statement {
+        min-height: 38px;
+        font-size: 11px;
+        margin-bottom: 12px;
+    }
+    
+    .general-remarks-text {
+        min-height: 38px;
+        font-size: 11px;
+        margin-bottom: 12px;
+    }
+    
+    .confirmation-table tbody tr {
+        height: auto;
+        vertical-align: top;
+    }
+    
+    
+    .image-upload-area {
+        padding: 16px;
+        min-height: 70px;
+    }
+    
+    .upload-icon {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .upload-text {
+        font-size: 11px;
+    }
+    
+    .file-detail-card {
+        padding: 6px 10px;
+    }
+    
+    .file-detail-name {
+        font-size: 11px;
+    }
+    
+    .file-detail-size {
+        font-size: 9px;
+    }
+    
+    .file-detail-remove {
+        width: 20px;
+        height: 20px;
+        font-size: 14px;
+    }
+    
+    .image-preview-item {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .image-preview-item .remove-image {
+        width: 18px;
+        height: 18px;
+        font-size: 11px;
+    }
+    
+    
+    .form-actions {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 20px;
+        padding-top: 15px;
+    }
+    
+    .btn {
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+        padding: 12px 20px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 0;
+    }
+    
+    .report-container {
+        width: 100%;
+        max-width: 100%;
+        padding: 10px;
+        margin: 100px auto 0 auto;
+        box-shadow: none;
+        left: 0;
+        transform: none;
+    }
+    
+    .text-area::placeholder {
+        font-size: 16px;
+    }
+    
+    .text-area {
+        min-height: 120px;
+        max-height: 220px;
+        font-size: 16px;
+        padding: 10px;
+        resize: vertical;
+        overflow-y: auto;
+    }
+    
+    
+    .company-header {
+        padding: 5px;
+        margin-bottom: 10px;
+    }
+    
+    .company-info {
+        gap: 10px;
+    }
+    
+    .company-logo {
+        width: 60px;
+        height: 60px;
+    }
+    
+    
+    .company-name {
+        font-size: 16px;
+        letter-spacing: 1px;
+    }
+    
+    .company-reg {
+        font-size: 8px;
+    }
+    
+    .company-address {
+        font-size: 10px;
+    }
+    
+    .company-contact {
+        font-size: 10px;
+    }
+    
+    .company-contact span {
+        display: block;
+        margin-bottom: 3px;
+        margin-right: 0;
+    }
+    
+    .company-gst {
+        font-size: 10px;
+    }
+    
+    
+    .report-header {
+        margin-bottom: 10px;
+    }
+    
+    .report-header h1 {
+        font-size: 20px;
+    }
+    
+    
+    .section-2 {
+        margin-bottom: 20px;
+    }
+    
+    .section-2 h3 {
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+    
+    .purpose-options {
+        gap: 6px;
+    }
+    
+    
+    .section-1 {
+        padding: 15px 0;
+        margin-bottom: 10px;
+    }
+    
+    .section-layout {
+        gap: 15px;
+    }
+    
+    
+    .text-input {
+        height: 40px;
+        font-size: 16px;
+        padding: 8px 10px;
+    }
+    
+    .info-field label,
+    .info2-field label {
+        font-size: 13px;
+    }
+    
+    
+    .section-device {
+        margin-bottom: 20px;
+    }
+    
+    .section-device h3 {
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+    
+    .device-table table {
+        font-size: 10px;
+        min-width: 700px;
+    }
+    
+    .device-table th,
+    .device-table td {
+        padding: 2px 1px;
+        font-size: 8px;
+        min-width: 35px;
+    }
+    
+    .device-input {
+        height: 16px;
+        font-size: 7px;
+        padding: 0;
+    }
+    
+    .device-table tr:hover .row-controls {
+        display: flex !important;
+    }
+    
+    .device-table .row-control-btn {
+        width: 22px;
+        height: 22px;
+        font-size: 16px;
+    }
+    
+    
+    .section-4 {
+        margin-bottom: 20px;
+    }
+    
+    .section-4 h3 {
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+    
+    .details-card {
+        border-radius: 4px;
+    }
+    
+    .details-card-header {
+        padding: 8px 10px;
+    }
+    
+    .details-card-title {
+        font-size: 12px;
+    }
+    
+    .details-card-content {
+        padding: 10px;
+    }
+    
+    
+    .details-table table {
+        font-size: 10px;
+        min-width: 700px;
+    }
+    
+    .details-table th,
+    .details-table td {
+        padding: 2px 1px;
+        font-size: 8px;
+        min-width: 35px;
+    }
+    
+    .table-input,
+    .time-select {
+        height: 16px;
+        font-size: 7px;
+        padding: 0;
+    }
+    
+    .details-table tr:hover .row-controls {
+        display: flex !important;
+    }
+    
+    .row-control-btn {
+        width: 18px !important;
+        height: 18px !important;
+        min-width: 18px !important;
+        min-height: 18px !important;
+        max-width: 18px !important;
+        max-height: 18px !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        box-sizing: border-box !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        line-height: 1 !important;
+    }
+    
+    
+    .section-5 {
+        margin-top: 15px;
+        padding-top: 10px;
+    }
+    
+    .confirmation-table table {
+        font-size: 10px;
+        display: block;
+    }
+    
+    .confirmation-table thead {
+        display: none;
+    }
+    
+    .confirmation-table tbody {
+        display: block;
+    }
+    
+    .confirmation-table tbody tr {
+        display: block;
+        margin-bottom: 20px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        overflow: hidden;
+        height: auto;
+    }
+    
+    .confirmation-table tbody td {
+        display: block;
+        width: 100%;
+        border: none;
+        padding: 15px;
+        background-color: white;
+    }
+    
+    .confirmation-table tbody td:first-child {
+        background-color: white;
+        border-bottom: 1px solid #eee;
+    }
+    
+    .confirmation-table tbody td:last-child {
+        background-color: white;
+    }
+    
+    .confirmation-table tbody td:first-child::before {
+        content: "Customer's Confirmation";
+        display: block;
+        font-weight: bold;
+        font-size: 14px;
+        color: #333;
+        margin-bottom: 10px;
+        text-align: left;
+        padding: 8px 0;
+        background-color: transparent;
+        border-bottom: 2px solid #333;
+    }
+    
+    .confirmation-table tbody td:last-child::before {
+        content: "For Office Use";
+        display: block;
+        font-weight: bold;
+        font-size: 14px;
+        color: #333;
+        margin-bottom: 10px;
+        text-align: left;
+        padding: 8px 0;
+        background-color: transparent;
+        border-bottom: 2px solid #333;
+    }
+    
+    .confirmation-header {
+        padding: 6px 4px;
+        font-size: 12px;
+    }
+    
+    .confirmation-content {
+        padding: 10px 6px;
+    }
+    
+    .confirmation-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 3px;
+        min-height: 16px;
+        justify-content: flex-start;
+        padding: 8px 0;
+        margin-bottom: 12px;
+    }
+    
+    .confirmation-row:last-child {
+        margin-bottom: 0;
+    }
+    
+    .confirmation-label {
+        min-width: auto;
+        font-size: 11px;
+        font-weight: 600;
+        color: #495057;
+        margin-bottom: 8px;
+        flex-shrink: 0;
+        white-space: nowrap;
+        text-align: left;
+        display: block;
+        width: 100%;
+    }
+    
+    .signature-line {
+        border-bottom: 1px solid #333;
+        flex: 1;
+        min-width: 80px;
+        height: 1.2em;
+        margin-left: 5px;
+        margin-top: 0;
+    }
+    
+    .confirmation-statement {
+        font-size: 10px;
+        margin-bottom: 10px;
+        min-height: 35px;
+    }
+    
+    .general-remarks-text {
+        font-size: 10px;
+        margin-bottom: 10px;
+        min-height: 35px;
+    }
+    
+    .confirmation-section-content {
+        gap: 12px;
+        height: 100%;
+        justify-content: flex-start;
+        padding: 8px 0;
+        margin-top: 6px;
+    }
+    
+    
+    .image-upload-area {
+        padding: 12px;
+        min-height: 60px;
+    }
+    
+    .upload-icon {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .upload-text {
+        font-size: 10px;
+    }
+    
+    .file-detail-card {
+        padding: 5px 8px;
+    }
+    
+    .file-detail-name {
+        font-size: 10px;
+    }
+    
+    .file-detail-size {
+        font-size: 8px;
+    }
+    
+    .file-detail-remove {
+        width: 22px;
+        height: 22px;
+        font-size: 16px;
+    }
+    
+    .image-preview-item {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .image-preview-item .remove-image {
+        width: 16px;
+        height: 16px;
+        font-size: 10px;
+    }
+    
+    
+    .form-actions {
+        margin-top: 15px;
+        padding-top: 10px;
+        gap: 8px;
+    }
+    
+    .btn {
+        max-width: 100%;
+        padding: 14px 20px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 500px) {
+    .confirmation-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .signature-line {
+        width: 100%;
+        margin-top: 4px;
+        margin-left: 0;
+    }
+}

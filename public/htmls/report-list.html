@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report List - Service Report</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/topbar.css">
+    <link rel="stylesheet" href="../styles/sidebar.css">
+    <link rel="stylesheet" href="../styles/report-list.css">
+    <link rel="stylesheet" href="../styles/popups.css">
+    <link href="https://fonts.googleapis.com/css2?family=Saira+Stencil+One&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="topbar">
+        <div class="topbar-logo">
+            <img src="../statics/Radical Logo New.jpg" alt="Radical Control">
+            <h1 class="topbar-company-name">RADICAL CONTROL</h1>
+        </div>
+        <div class="hamburger-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+    <div class="sidebar">
+        <ul class="sidebar-menu">
+            <li>
+                <a id="createReportBtn">
+                    <span class="sidebar-menu-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                        </svg>
+                    </span>
+                    Create Report
+                </a>
+            </li>
+            <li>
+                <a id="reportListBtn" class="active">
+                    <span class="sidebar-menu-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/>
+                        </svg>
+                    </span>
+                    Report List
+                </a>
+            </li>
+            <li>
+                <a id="staffScheduleBtn">
+                    <span class="sidebar-menu-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
+                        </svg>
+                    </span>
+                    Staff Schedule
+                </a>
+            </li>
+            <li>
+                <a id="reviewReportBtn">
+                    <span class="sidebar-menu-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
+                        </svg>
+                    </span>
+                    Review Report
+                </a>
+            </li>
+            <li>
+                <a id="editReportBtn">
+                    <span class="sidebar-menu-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
+                        </svg>
+                    </span>
+                    Edit Report
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="sidebar-overlay"></div>
+    <div class="watermark-container"></div>
+
+    <div class="list-container">
+        <div class="list-header">
+            <h1>Service Report List</h1>
+        </div>
+
+        <div class="search-container">
+            <div class="search-bar">
+                <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="m21 21-4.35-4.35"></path>
+                </svg>
+                <input type="text" id="globalSearch" placeholder="Search across all columns..." class="search-input">
+                <button id="clearSearch" class="clear-search-btn" style="display: none;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            <div class="filter-toggle-container">
+                <button id="toggleFilters" class="btn-filter-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+                    </svg>
+                    Show Filters
+                </button>
+            </div>
+        </div>
+
+        <div class="filters-container" id="filtersContainer" style="display: none;">
+            <div class="filters-grid">
+                <div class="filter-item">
+                    <label>Customer</label>
+                    <input type="text" id="filterCustomer" placeholder="Filter by customer..." class="filter-input">
+                </div>
+                <div class="filter-item">
+                    <label>Report No</label>
+                    <input type="text" id="filterReportNo" placeholder="Filter by report no..." class="filter-input">
+                </div>
+                <div class="filter-item">
+                    <label>Date</label>
+                    <input type="date" id="filterDate" class="filter-input">
+                </div>
+                <div class="filter-item">
+                    <label>Service By</label>
+                    <input type="text" id="filterServiceBy" placeholder="Filter by service by..." class="filter-input">
+                </div>
+                <div class="filter-item">
+                    <label>System/Machine/Line Name</label>
+                    <input type="text" id="filterSystem" placeholder="Filter by system/machine/line name..." class="filter-input">
+                </div>
+                <div class="filter-item">
+                    <label>PLC/HMI</label>
+                    <input type="text" id="filterPlcHmi" placeholder="Filter by PLC/HMI..." class="filter-input">
+                </div>
+                <div class="filter-item">
+                    <label>Brand</label>
+                    <input type="text" id="filterBrand" placeholder="Filter by brand..." class="filter-input">
+                </div>
+                <div class="filter-item">
+                    <label>Model No</label>
+                    <input type="text" id="filterModelNo" placeholder="Filter by model..." class="filter-input">
+                </div>
+            </div>
+            <div class="filter-actions">
+                <button id="applyFilters" class="btn-apply-filters">Apply Filters</button>
+                <button id="clearAllFilters" class="btn-clear-filters">Clear All Filters</button>
+            </div>
+        </div>
+
+        <div class="results-info">
+            <span id="resultsCount">Loading...</span>
+            <div class="view-options">
+                <label>Show:</label>
+                <select id="pageSize" class="page-size-select">
+                    <option value="10">10</option>
+                    <option value="25" selected>25</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                    <option value="all">All</option>
+                </select>
+                <span>entries</span>
+            </div>
+        </div>
+
+        <div class="table-container">
+            <table class="reports-table" id="reportsTable">
+                <thead>
+                    <tr>
+                        <th data-column="customer" class="sortable">
+                            Customer
+                            <span class="sort-icon">⇅</span>
+                        </th>
+                        <th data-column="reportNo" class="sortable">
+                            Report No
+                            <span class="sort-icon">⇅</span>
+                        </th>
+                        <th data-column="date" class="sortable">
+                            Date
+                            <span class="sort-icon">⇅</span>
+                        </th>
+                        <th data-column="serviceBy" class="sortable">
+                            Service By
+                            <span class="sort-icon">⇅</span>
+                        </th>
+                        <th data-column="system" class="sortable">
+                            System / Machine / Line Name
+                            <span class="sort-icon">⇅</span>
+                        </th>
+                        <th data-column="plcHmi" class="sortable">
+                            PLC / HMI
+                            <span class="sort-icon">⇅</span>
+                        </th>
+                        <th data-column="brand" class="sortable">
+                            Brand
+                            <span class="sort-icon">⇅</span>
+                        </th>
+                        <th data-column="modelNo" class="sortable">
+                            Model No
+                            <span class="sort-icon">⇅</span>
+                        </th>
+                        <th class="actions-column">Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="reportsTableBody">
+                    <tr class="loading-row">
+                        <td colspan="9" class="text-center">
+                            <div class="spinner"></div>
+                            <p>Loading reports...</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="pagination-container" id="paginationContainer">
+            <div class="pagination-info">
+                Showing <span id="showingStart">0</span> to <span id="showingEnd">0</span> of <span id="totalRecords">0</span> entries
+            </div>
+            <div class="pagination" id="pagination">
+            </div>
+        </div>
+
+        <div class="empty-state" id="emptyState" style="display: none;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="12" y1="18" x2="12" y2="12"></line>
+                <line x1="9" y1="15" x2="15" y2="15"></line>
+            </svg>
+            <h3>No Reports Found</h3>
+            <p>No reports match your search criteria. Try adjusting your filters or search terms.</p>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../scripts/sidebar.js"></script>
+    <script src="../scripts/sidebar-search.js"></script>
+    <script src="../scripts/report-list-loader.js"></script>
+    <script src="../scripts/report-list-search.js"></script>
+    <script src="../scripts/report-list-filter.js"></script>
+    <script src="../scripts/report-list-pagination.js"></script>
+    <script src="../scripts/report-list-main.js"></script>
+</body>
+</html>
+

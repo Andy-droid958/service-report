@@ -1,0 +1,140 @@
+.read-only-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.read-only-form {
+    position: relative;
+    z-index: 2;
+    opacity: 1;
+}
+
+.read-only-form input,
+.read-only-form select,
+.read-only-form textarea,
+.read-only-form button {
+    pointer-events: none;
+    cursor: not-allowed;
+}
+
+.read-only-form input[type="text"],
+.read-only-form input[type="date"],
+.read-only-form select,
+.read-only-form textarea {
+    background-color: #f8f9fa !important;
+    border: 1px solid #dee2e6 !important;
+    color: #495057 !important;
+    opacity: 0.8;
+}
+
+.read-only-form input[type="radio"] {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.read-only-form input[type="checkbox"] {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.read-only-form input:focus,
+.read-only-form select:focus,
+.read-only-form textarea:focus {
+    outline: none !important;
+    border-color: #dee2e6 !important;
+    box-shadow: none !important;
+}
+
+.read-only-form #backButton {
+    pointer-events: auto !important;
+    cursor: pointer !important;
+    opacity: 1 !important;
+    background-color: #28a745 !important;
+    color: white !important;
+}
+
+.read-only-form #backButton:hover {
+    background-color: #218838 !important;
+    transform: translateY(-1px);
+}
+
+.read-only-form #editReportButton {
+    pointer-events: auto !important;
+    cursor: pointer !important;
+    opacity: 1 !important;
+    background-color: #007bff !important;
+    color: white !important;
+}
+
+.read-only-form #editReportButton:hover {
+    background-color: #0056b3 !important;
+    transform: translateY(-1px);
+}
+
+.read-only-form #generatePdfButton {
+    pointer-events: auto !important;
+    cursor: pointer !important;
+    opacity: 1 !important;
+    background-color: #dc3545 !important;
+    color: white !important;
+}
+
+.read-only-form #generatePdfButton:hover {
+    background-color: #c82333 !important;
+    transform: translateY(-1px);
+}
+
+.read-only-form .row-controls {
+    display: none !important;
+}
+
+.read-only-form .table-input {
+    background-color: #f8f9fa !important;
+    border: 1px solid #dee2e6 !important;
+    color: #495057 !important;
+    opacity: 0.8;
+}
+
+.read-only-form .travel-time,
+.read-only-form .work-time,
+.read-only-form .overtime {
+    background-color: #e9ecef !important;
+    font-weight: bold;
+    color: #495057 !important;
+}
+
+.read-only-form {
+    border: 2px solid #dee2e6;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.read-only-form::before {
+    content: "READ ONLY";
+    position: absolute;
+    top: -2px;
+    right: 20px;
+    background-color: #1fdf2f;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
+    z-index: 10;
+}
+
+.read-only-form .file-detail-card {
+    pointer-events: auto !important;
+    cursor: default !important;
+}
+
+.read-only-form .file-detail-card:hover {
+    background-color: #e9ecef !important;
+    border-color: #adb5bd !important;
+}

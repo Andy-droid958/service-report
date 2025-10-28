@@ -1,0 +1,339 @@
+.image-upload-container {
+    margin-top: 8px;
+}
+
+.image-upload-area {
+    border: 2px dashed #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    background-color: #fafafa;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    min-height: 80px;
+    justify-content: center;
+}
+
+.image-upload-area:hover {
+    border-color: #007bff;
+    background-color: #f0f8ff;
+}
+
+.image-upload-area:active {
+    border-color: #0056b3;
+    background-color: #e6f3ff;
+}
+
+.image-upload-area.dragover {
+    border-color: #007bff;
+    background-color: #e3f2fd;
+    transform: scale(1.02);
+}
+
+.upload-icon {
+    width: 32px;
+    height: 32px;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+}
+
+.image-upload-area:hover .upload-icon {
+    opacity: 1;
+}
+
+.upload-text {
+    font-size: 12px;
+    color: #666;
+    font-weight: 500;
+}
+
+.upload-text {
+    display: block;
+    color: #495057;
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.image-preview-container {
+    margin-top: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.image-preview-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+}
+
+.file-detail-card {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    box-sizing: border-box;
+    transition: all 0.2s ease;
+}
+
+.file-detail-card:hover {
+    background-color: #e9ecef;
+    border-color: #adb5bd;
+}
+
+.file-detail-info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+}
+
+.file-detail-name {
+    font-size: 12px;
+    font-weight: 500;
+    color: #333;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 2px;
+}
+
+.file-detail-size {
+    font-size: 10px;
+    color: #6c757d;
+}
+
+.file-detail-remove {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #ccc;
+    background: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    border-radius: 2px;
+    transition: all 0.2s ease;
+    color: #dc3545;
+    flex-shrink: 0;
+}
+
+.file-detail-remove:hover {
+    background: #f8d7da;
+    border-color: #999;
+}
+
+.image-preview-item {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+    background-color: #f8f9fa;
+}
+
+.image-preview-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.image-preview-item .remove-image {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+.image-preview-item .remove-image:hover {
+    background-color: #c82333;
+}
+
+.image-preview-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    color: #6c757d;
+    font-size: 10px;
+    text-align: center;
+    background-color: #f8f9fa;
+    border: 2px dashed #dee2e6;
+}
+
+@media (max-width: 768px) {
+    .image-upload-area {
+        padding: 16px;
+        min-height: 70px;
+    }
+    
+    .upload-icon {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .upload-text {
+        font-size: 11px;
+    }
+    
+    .file-detail-card {
+        padding: 6px 10px;
+    }
+    
+    .file-detail-name {
+        font-size: 11px;
+    }
+    
+    .file-detail-size {
+        font-size: 9px;
+    }
+    
+    .file-detail-remove {
+        width: 20px;
+        height: 20px;
+        font-size: 14px;
+    }
+    
+    .image-preview-item {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .image-preview-item .remove-image {
+        width: 18px;
+        height: 18px;
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 480px) {
+    .image-upload-area {
+        padding: 12px;
+        min-height: 60px;
+    }
+    
+    .upload-icon {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .upload-text {
+        font-size: 10px;
+    }
+    
+    .file-detail-card {
+        padding: 5px 8px;
+    }
+    
+    .file-detail-name {
+        font-size: 10px;
+    }
+    
+    .file-detail-size {
+        font-size: 8px;
+    }
+    
+    .file-detail-remove {
+        width: 22px;
+        height: 22px;
+        font-size: 16px;
+    }
+    
+    .image-preview-item {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .image-preview-item .remove-image {
+        width: 16px;
+        height: 16px;
+        font-size: 10px;
+    }
+}
+
+.upload-info {
+    margin-top: 8px;
+    text-align: center;
+}
+
+.upload-info small {
+    color: #6c757d;
+    font-size: 11px;
+    line-height: 1.3;
+}
+
+.upload-progress {
+    margin-top: 10px;
+    padding: 8px;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+    border: 1px solid #dee2e6;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background-color: #e9ecef;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 5px;
+}
+
+.progress-fill {
+    height: 100%;
+    background-color: #007bff;
+    width: 0%;
+    transition: width 0.3s ease;
+    border-radius: 4px;
+}
+
+.progress-text {
+    font-size: 12px;
+    color: #495057;
+    text-align: center;
+    display: block;
+}
+
+.file-validation-error {
+    color: #dc3545;
+    font-size: 12px;
+    margin-top: 5px;
+    padding: 5px;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    border-radius: 4px;
+}
+
+.file-validation-success {
+    color: #155724;
+    font-size: 12px;
+    margin-top: 5px;
+    padding: 5px;
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    border-radius: 4px;
+}
+

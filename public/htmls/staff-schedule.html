@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Schedule - Service Report</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/topbar.css">
+    <link rel="stylesheet" href="../styles/sidebar.css">
+    <link rel="stylesheet" href="../styles/report-list.css">
+    <link rel="stylesheet" href="../styles/staff-schedule.css">
+    <link rel="stylesheet" href="../styles/popups.css">
+    <link href="https://fonts.googleapis.com/css2?family=Saira+Stencil+One&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="topbar">
+        <div class="topbar-logo">
+            <img src="../statics/Radical Logo New.jpg" alt="Radical Control">
+            <h1 class="topbar-company-name">RADICAL CONTROL</h1>
+        </div>
+        <div class="hamburger-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+    <div class="sidebar">
+        <ul class="sidebar-menu">
+            <li>
+                <a id="createReportBtn">
+                    <span class="sidebar-menu-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                        </svg>
+                    </span>
+                    Create Report
+                </a>
+            </li>
+            <li>
+                <a id="reportListBtn">
+                    <span class="sidebar-menu-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/>
+                        </svg>
+                    </span>
+                    Report List
+                </a>
+            </li>
+            <li>
+                <a id="staffScheduleBtn" class="active">
+                    <span class="sidebar-menu-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
+                        </svg>
+                    </span>
+                    Staff Schedule
+                </a>
+            </li>
+            <li>
+                <a id="reviewReportBtn">
+                    <span class="sidebar-menu-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
+                        </svg>
+                    </span>
+                    Review Report
+                </a>
+            </li>
+            <li>
+                <a id="editReportBtn">
+                    <span class="sidebar-menu-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
+                        </svg>
+                    </span>
+                    Edit Report
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="sidebar-overlay"></div>
+    <div class="watermark-container"></div>
+
+    <div class="list-container">
+        <div class="list-header">
+            <h1>Staff Schedule</h1>
+        </div>
+
+        <div class="schedule-filters" style="padding: 20px; background: white; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr auto; gap: 15px; align-items: end;">
+                <div>
+                    <label for="staffSelect" style="display: block; margin-bottom: 5px; font-weight: 500; color: #333;">Staff Name:</label>
+                    <select id="staffSelect" class="form-select" style="width: 100%;">
+                        <option value="" disabled selected hidden>-- Select Staff --</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="startDate" style="display: block; margin-bottom: 5px; font-weight: 500; color: #333;">Start Date:</label>
+                    <input type="date" id="startDate" class="form-control">
+                </div>
+                <div>
+                    <label for="endDate" style="display: block; margin-bottom: 5px; font-weight: 500; color: #333;">End Date:</label>
+                    <input type="date" id="endDate" class="form-control">
+                </div>
+                <div>
+                    <button id="loadScheduleBtn" class="btn-load-schedule">
+                        Load Schedule
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="calendarSection" style="display: none;">
+            <div class="view-tabs-container">
+                <button id="viewCalendar" class="view-tab active">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: middle; margin-right: 5px;">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
+                    Calendar View
+                </button>
+                <button id="viewChart" class="view-tab">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: middle; margin-right: 5px;">
+                        <line x1="18" y1="20" x2="18" y2="10"></line>
+                        <line x1="12" y1="20" x2="12" y2="4"></line>
+                        <line x1="6" y1="20" x2="6" y2="14"></line>
+                    </svg>
+                    Chart
+                </button>
+            </div>
+
+            <div id="calendarViewContainer" class="tab-content-container" style="display: block;">
+                <div style="background: white; padding: 25px; border-radius: 0 12px 12px 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 20px; border: 1px solid #e9ecef; border-top: 2px solid #e9ecef;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; padding-bottom: 15px; border-bottom: 2px solid #e9ecef;">
+                    <button id="prevMonth" class="btn btn-outline-secondary">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="15 18 9 12 15 6"></polyline>
+                        </svg>
+                    </button>
+                    <div style="position: relative;">
+                        <h3 id="currentMonthYear" style="margin: 0; color: #2c3e50; font-weight: 700; font-size: 24px; letter-spacing: 0.5px; cursor: pointer; user-select: none; display: flex; align-items: center; gap: 8px;">
+                            <span id="monthYearText"></span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </h3>
+                        <div id="monthPicker" style="display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); margin-top: 10px; background: white; border: 2px solid #e9ecef; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); padding: 15px; z-index: 1000; min-width: 300px;">
+                            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 15px;">
+                                <button class="month-picker-btn" data-month="0">Jan</button>
+                                <button class="month-picker-btn" data-month="1">Feb</button>
+                                <button class="month-picker-btn" data-month="2">Mar</button>
+                                <button class="month-picker-btn" data-month="3">Apr</button>
+                                <button class="month-picker-btn" data-month="4">May</button>
+                                <button class="month-picker-btn" data-month="5">Jun</button>
+                                <button class="month-picker-btn" data-month="6">Jul</button>
+                                <button class="month-picker-btn" data-month="7">Aug</button>
+                                <button class="month-picker-btn" data-month="8">Sep</button>
+                                <button class="month-picker-btn" data-month="9">Oct</button>
+                                <button class="month-picker-btn" data-month="10">Nov</button>
+                                <button class="month-picker-btn" data-month="11">Dec</button>
+                            </div>
+                            <div style="display: flex; gap: 8px; align-items: center; justify-content: center; padding-top: 10px; border-top: 1px solid #e9ecef;">
+                                <button id="prevYearPicker" style="padding: 6px 10px; background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 4px; cursor: pointer;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="15 18 9 12 15 6"></polyline>
+                                    </svg>
+                                </button>
+                                <span id="pickerYear" style="font-weight: 600; font-size: 16px; min-width: 60px; text-align: center;"></span>
+                                <button id="nextYearPicker" style="padding: 6px 10px; background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 4px; cursor: pointer;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="9 18 15 12 9 6"></polyline>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <button id="nextMonth" class="btn btn-outline-secondary">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </button>
+                </div>
+                <div style="text-align: center; margin-bottom: 15px; padding: 8px; background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%); border-radius: 8px; border: 1px dashed #90caf9;">
+                    <div style="display: flex; align-items: center; justify-content: center; gap: 12px; color: #1976d2; font-size: 13px; font-weight: 500;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="15 18 9 12 15 6"></polyline>
+                        </svg>
+                        <span>Swipe or drag to navigate months</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </div>
+                </div>
+                <div id="calendarGrid" class="calendar-grid"></div>
+                <div style="margin-top: 15px; padding: 12px; background: #f8f9fa; border-radius: 4px; display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                    <div style="display: flex; align-items: center; gap: 6px;">
+                        <div style="width: 20px; height: 20px; background: #4caf50; border-radius: 3px; border: 1px solid #2e7d32;"></div>
+                        <span style="font-size: 13px; color: #666; font-weight: 500;">Completed</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 6px;">
+                        <div style="width: 20px; height: 20px; background: #2196f3; border-radius: 3px; border: 1px solid #1565c0;"></div>
+                        <span style="font-size: 13px; color: #666; font-weight: 500;">Pending</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 6px;">
+                        <div style="width: 20px; height: 20px; background: #fff; border-radius: 3px; border: 1px solid #dee2e6;"></div>
+                        <span style="font-size: 13px; color: #666;">No Reports</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 6px;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="#ff9800" stroke="none">
+                            <path d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2z"/>
+                        </svg>
+                        <span style="font-size: 13px; color: #666; font-weight: 500;">Has Reminder</span>
+                    </div>
+                    <div id="hasReportsLegend" class="action-legend-btn blue-legend">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1976d2" stroke-width="2">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        </svg>
+                        <span>Show All Reports</span>
+                    </div>
+                    <div id="showStatisticsBtn" class="action-legend-btn green-legend">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2e7d32" stroke-width="2">
+                            <line x1="18" y1="20" x2="18" y2="10"></line>
+                            <line x1="12" y1="20" x2="12" y2="4"></line>
+                            <line x1="6" y1="20" x2="6" y2="14"></line>
+                        </svg>
+                        <span>Show Statistics</span>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+            <div id="chartViewContainer" class="tab-content-container" style="display: none;">
+                <div style="background: white; padding: 25px; border-radius: 0 12px 12px 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 20px; border: 1px solid #e9ecef; border-top: 2px solid #e9ecef; display: flex; flex-direction: column; align-items: center;">
+                    <div id="ganttChart" style="width: 100%; max-width: 1400px; height: 500px;"></div>
+                    <div style="width: 100%; max-width: 1400px; margin-top: 15px; padding: 12px; background: #f8f9fa; border-radius: 4px; display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                        <div style="display: flex; align-items: center; gap: 6px;">
+                            <div style="width: 20px; height: 20px; background: #4caf50; border-radius: 3px; border: 1px solid #2e7d32;"></div>
+                            <span style="font-size: 13px; color: #666; font-weight: 500;">Completed</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 6px;">
+                            <div style="width: 20px; height: 20px; background: #2196f3; border-radius: 3px; border: 1px solid #1565c0;"></div>
+                            <span style="font-size: 13px; color: #666; font-weight: 500;">Pending</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 6px;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="#ff9800" stroke="none">
+                                <path d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2z"/>
+                            </svg>
+                            <span style="font-size: 13px; color: #666; font-weight: 500;">Has Reminder</span>
+                        </div>
+                        <div id="hasReportsLegendChart" class="action-legend-btn blue-legend">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1976d2" stroke-width="2">
+                                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                            </svg>
+                            <span>Show All Reports</span>
+                        </div>
+                        <div id="showStatisticsBtnChart" class="action-legend-btn green-legend">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2e7d32" stroke-width="2">
+                                <line x1="18" y1="20" x2="18" y2="10"></line>
+                                <line x1="12" y1="20" x2="12" y2="4"></line>
+                                <line x1="6" y1="20" x2="6" y2="14"></line>
+                            </svg>
+                            <span>Show Statistics</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="statisticsSection" style="display: none; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-bottom: 20px;">
+                <div style="margin-bottom: 15px;">
+                    <h4 style="margin: 0; color: #333;">Staff Report Statistics</h4>
+                </div>
+                <div style="display: flex; gap: 10px; margin-bottom: 15px; padding: 10px; background: #f8f9fa; border-radius: 4px;">
+                    <button id="filterWeekly" class="stats-filter-btn" data-filter="weekly" style="flex: 1; padding: 8px 16px; border: 1px solid #ddd; background: white; border-radius: 4px; cursor: pointer; font-weight: 500; transition: all 0.2s;">Weekly</button>
+                    <button id="filterMonthly" class="stats-filter-btn" data-filter="monthly" style="flex: 1; padding: 8px 16px; border: 1px solid #ddd; background: white; border-radius: 4px; cursor: pointer; font-weight: 500; transition: all 0.2s;">Monthly</button>
+                    <button id="filterYearly" class="stats-filter-btn" data-filter="yearly" style="flex: 1; padding: 8px 16px; border: 1px solid #ddd; background: white; border-radius: 4px; cursor: pointer; font-weight: 500; transition: all 0.2s;">Yearly</button>
+                </div>
+                <div id="statisticsLoading" style="text-align: center; padding: 40px; display: none;">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                    <p style="margin-top: 10px; color: #666;">Loading statistics...</p>
+                </div>
+                <div id="statisticsContent" style="display: none;">
+                    <div style="display: flex; justify-content: center;">
+                        <div style="max-width: 1200px; width: 100%;">
+                            <div id="chartContainer" style="width: 100%; height: 400px;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="scheduleDetails" style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; flex-wrap: wrap; gap: 15px;">
+                    <h4 style="margin: 0; color: #333;">Schedule Details</h4>
+                    <div style="display: flex; gap: 10px; align-items: center;">
+                        <div class="search-bar" style="position: relative; display: flex; align-items: center;">
+                            <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="position: absolute; left: 10px; color: #6c757d; pointer-events: none;">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <path d="m21 21-4.35-4.35"></path>
+                            </svg>
+                            <input type="text" id="scheduleSearch" placeholder="Search schedules..." style="width: 250px; padding: 12px 45px 12px 45px; border: 2px solid #dee2e6; border-radius: 6px; font-size: 15px; transition: border-color 0.3s ease, box-shadow 0.3s ease; min-height: 48px; box-sizing: border-box;">
+                            <button id="clearScheduleSearch" class="clear-search-btn" style="display: none; position: absolute; right: 10px; background: none; border: none; padding: 5px; cursor: pointer; color: #6c757d;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                                </svg>
+                            </button>
+                        </div>
+                        <button id="toggleScheduleFilters">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+                            </svg>
+                            Show Filters
+                        </button>
+                    </div>
+                </div>
+                <div id="scheduleFiltersContainer" class="filters-container" style="display: none; background-color: #f8f9fa; border: 2px solid #dee2e6; border-radius: 6px; padding: 15px; margin-bottom: 15px;">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 12px;">
+                        <div>
+                            <label style="display: block; margin-bottom: 5px; font-size: 12px; font-weight: 600; color: #495057;">Customer:</label>
+                            <input type="text" id="filterScheduleCustomer" placeholder="Filter by customer..." style="width: 100%; padding: 6px 10px; border: 1px solid #ced4da; border-radius: 4px; font-size: 13px;">
+                        </div>
+                        <div>
+                            <label style="display: block; margin-bottom: 5px; font-size: 12px; font-weight: 600; color: #495057;">Project Name:</label>
+                            <input type="text" id="filterScheduleProject" placeholder="Filter by project..." style="width: 100%; padding: 6px 10px; border: 1px solid #ced4da; border-radius: 4px; font-size: 13px;">
+                        </div>
+                        <div>
+                            <label style="display: block; margin-bottom: 5px; font-size: 12px; font-weight: 600; color: #495057;">Report ID:</label>
+                            <input type="text" id="filterScheduleReportId" placeholder="Filter by report ID..." style="width: 100%; padding: 6px 10px; border: 1px solid #ced4da; border-radius: 4px; font-size: 13px;">
+                        </div>
+                        <div>
+                            <label style="display: block; margin-bottom: 5px; font-size: 12px; font-weight: 600; color: #495057;">Status:</label>
+                            <select id="filterScheduleStatus" style="width: 100%; padding: 6px 10px; border: 1px solid #ced4da; border-radius: 4px; font-size: 13px;">
+                                <option value="">All</option>
+                                <option value="completed">Completed</option>
+                                <option value="pending">Pending</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label style="display: block; margin-bottom: 5px; font-size: 12px; font-weight: 600; color: #495057;">Reminder:</label>
+                            <select id="filterScheduleReminder" style="width: 100%; padding: 6px 10px; border: 1px solid #ced4da; border-radius: 4px; font-size: 13px;">
+                                <option value="">All</option>
+                                <option value="has-reminder">Has Reminder</option>
+                                <option value="no-reminder">No Reminder</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label style="display: block; margin-bottom: 5px; font-size: 12px; font-weight: 600; color: #495057;">Date:</label>
+                            <input type="date" id="filterScheduleDate" style="width: 100%; padding: 6px 10px; border: 1px solid #ced4da; border-radius: 4px; font-size: 13px; box-sizing: border-box;">
+                        </div>
+                    </div>
+                    <div style="display: flex; justify-content: flex-end; gap: 8px;">
+                        <button id="applyScheduleFilters" style="padding: 6px 14px; background-color: #007bff; color: white; border: none; border-radius: 4px; font-size: 13px; font-weight: 500; cursor: pointer;">Apply Filters</button>
+                        <button id="clearScheduleFilters" style="padding: 6px 14px; background-color: #6c757d; color: white; border: none; border-radius: 4px; font-size: 13px; font-weight: 500; cursor: pointer;">Clear All</button>
+                    </div>
+                </div>
+                <div id="scheduleList"></div>
+            </div>
+        </div>
+
+        <div id="loadingIndicator" style="display: none; text-align: center; padding: 40px;">
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <p style="margin-top: 10px; color: #666;">Loading schedule data...</p>
+        </div>
+
+        <div id="emptyState" style="padding: 40px; text-align: center; color: #666;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" style="margin: 20px auto; display: block; opacity: 0.5;">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+            <h5 style="margin-top: 20px; color: #666;">Select a staff member and date range to view their schedule</h5>
+        </div>
+    </div>
+
+    <div id="connectTelegramModal" class="modal fade" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content telegram-modal-content">
+                <div class="modal-header telegram-modal-header">
+                    <h5 class="modal-title modal-title-flex">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white">
+                            <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.654-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.941z"/>
+                        </svg>
+                        Connect Telegram Account
+                    </h5>
+                    <button type="button" class="close-popup" data-bs-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body modal-body-padding">
+                    <div class="setup-guide-card">
+                        <div class="setup-guide-content">
+                            <div class="setup-guide-text">
+                                <h6 class="setup-guide-title">Quick Setup Guide</h6>
+                                <div class="setup-guide-steps">
+                                    <div class="setup-guide-step">
+                                        <span class="setup-guide-number">1</span>
+                                        <span>Open <strong>Telegram</strong> app</span>
+                                    </div>
+                                    <div class="setup-guide-step">
+                                        <span class="setup-guide-number">2</span>
+                                        <span>Search for: <strong id="botUsernameDisplay" style="color: #0d47a1; background: white; padding: 2px 8px; border-radius: 4px; font-family: monospace;">@YourBot</strong></span>
+                                    </div>
+                                    <div class="setup-guide-step">
+                                        <span class="setup-guide-number">3</span>
+                                        <span>Send <code style="background: white; padding: 2px 6px; border-radius: 4px; color: #0d47a1; font-weight: 600;">/start</code> command</span>
+                                    </div>
+                                    <div class="setup-guide-step">
+                                        <span class="setup-guide-number">4</span>
+                                        <span>Copy the <strong>6-digit code</strong> and your <strong>Chat ID</strong></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <form id="connectTelegramForm">
+                        <div class="mb-3">
+                            <label for="connectStaffName" class="form-label form-label-styled">
+                                Staff Member
+                            </label>
+                            <input type="text" id="connectStaffName" class="form-control form-input-readonly" readonly>
+                            <input type="hidden" id="connectStaffSelect" required>
+                        </div>
+                        
+                        <div id="existingConnectionInfo" style="display: none; margin-bottom: 15px;">
+                            <div class="alert alert-info" style="margin-bottom: 10px;">
+                                <strong>Currently Connected</strong><br>
+                                <span id="existingConnectionDetails"></span>
+                            </div>
+                            <p style="font-size: 13px; color: #666;">You can reconfigure your Telegram connection below.</p>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="connectCode" class="form-label form-label-styled">
+                                Connection Code <span style="color: #d32f2f;">*</span>
+                            </label>
+                            <input type="text" id="connectCode" class="form-control form-input-code" placeholder="000000" maxlength="6" pattern="[0-9]{6}" required>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="connectChatId" class="form-label form-label-styled">
+                                Telegram Chat ID <span style="color: #d32f2f;">*</span>
+                            </label>
+                            <input type="text" id="connectChatId" class="form-control form-input-standard form-input-monospace" placeholder="e.g., 123456789" required>
+                            <div class="form-text form-text-tip">
+                                <small class="form-text-tip-content">The bot will show your Chat ID in the welcome message. You can also use <code style="background: white; padding: 2px 6px; border-radius: 4px;">@userinfobot</code> on Telegram.</small>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer modal-footer-styled">
+                    <button type="button" class="clear-btn" data-bs-dismiss="modal">
+                        Cancel
+                    </button>
+                    <button type="button" id="connectTelegramBtn" class="search-btn">
+                        Connect Now
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="reminderModal" class="modal fade" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content telegram-modal-content">
+                <div class="modal-header reminder-modal-header">
+                    <h5 class="modal-title modal-title-flex">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                            <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                        </svg>
+                        Schedule Reminder
+                    </h5>
+                    <button type="button" class="close-popup" data-bs-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body modal-body-padding">
+                    <form id="reminderForm">
+                        <div class="mb-4">
+                            <label class="form-label form-label-styled">
+                                Staff Member
+                            </label>
+                            <input type="text" id="reminderStaffName" class="form-control form-input-readonly" readonly>
+                            <input type="hidden" id="reminderStaffSelect" required>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="reminderMessage" class="form-label form-label-styled">
+                                Reminder Message <span style="color: #d32f2f;">*</span>
+                            </label>
+                            <textarea id="reminderMessage" class="form-control form-input-textarea" rows="8" placeholder="Enter reminder message..." required></textarea>
+                            <div class="form-text form-text-styled">
+                                <small>Message will be sent to the staff member's Telegram account.</small>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="reminderDateTime" class="form-label form-label-styled">
+                                Schedule Date & Time <span style="color: #d32f2f;">*</span>
+                            </label>
+                            <input type="datetime-local" id="reminderDateTime" class="form-control form-input-datetime" required>
+                            <div class="form-text form-text-styled">
+                                <small>Select when the reminder should be sent.</small>
+                            </div>
+                        </div>
+
+                        <div id="reminderWarning"></div>
+
+                        <div id="telegramConnectionStatus">
+                            <div class="alert alert-info alert-gradient-info" role="alert">
+                                <div class="d-flex align-items-center">
+                                    <div class="spinner-border spinner-border-sm me-2" role="status" style="color: #2196f3;"></div>
+                                    <span style="color: #1565c0; font-weight: 500;">Checking Telegram connection...</span>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer modal-footer-styled">
+                    <button type="button" class="clear-btn" data-bs-dismiss="modal">
+                        Cancel
+                    </button>
+                    <button type="button" id="scheduleReminderBtn" class="search-btn">
+                        Schedule Reminder
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <script src="../scripts/sidebar.js"></script>
+    <script src="../scripts/sidebar-search.js"></script>
+    <script src="../scripts/staff-schedule.js"></script>
+    <script src="../scripts/staff-statistics.js"></script>
+    <script src="../scripts/staff-gantt-chart.js"></script>
+    <script src="../scripts/reminder.js"></script>
+</body>
+</html>
+

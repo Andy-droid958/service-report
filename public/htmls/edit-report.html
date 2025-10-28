@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Service Report</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/topbar.css">
+    <link rel="stylesheet" href="../styles/sidebar.css">
+    <link rel="stylesheet" href="../styles/base.css">
+    <link rel="stylesheet" href="../styles/company-header.css">
+    <link rel="stylesheet" href="../styles/form-sections.css">
+    <link rel="stylesheet" href="../styles/details-cards.css">
+    <link rel="stylesheet" href="../styles/confirmation.css">
+    <link rel="stylesheet" href="../styles/popups.css">
+    <link rel="stylesheet" href="../styles/uploads.css">
+    <link rel="stylesheet" href="../styles/buttons.css">
+    <link rel="stylesheet" href="../styles/edit-buttons.css">
+    <link rel="stylesheet" href="../styles/edit-device-table.css">
+    <link rel="stylesheet" href="../styles/edit-details-table.css">
+    <link rel="stylesheet" href="../styles/edit-inputs.css">
+    <link rel="stylesheet" href="../styles/edit-messages.css">
+    <link rel="stylesheet" href="../styles/edit-layout.css">
+    <link rel="stylesheet" href="../styles/edit-controls.css">
+    <link rel="stylesheet" href="../styles/edit-responsive.css">
+    <link rel="stylesheet" href="../styles/autocomplete.css">
+    <link href="https://fonts.googleapis.com/css2?family=Saira+Stencil+One&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="topbar">
+        <div class="topbar-logo">
+            <img src="../statics/Radical Logo New.jpg" alt="Radical Control">
+            <h1 class="topbar-company-name">RADICAL CONTROL</h1>
+        </div>
+        <div class="hamburger-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <div class="sidebar">
+        <ul class="sidebar-menu">
+            <li>
+                <a id="createReportBtn">
+                    <span class="sidebar-menu-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                        </svg>
+                    </span>
+                    Create Report
+                </a>
+            </li>
+            <li>
+                <a id="reportListBtn">
+                    <span class="sidebar-menu-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/>
+                        </svg>
+                    </span>
+                    Report List
+                </a>
+            </li>
+            <li>
+                <a id="staffScheduleBtn">
+                    <span class="sidebar-menu-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
+                        </svg>
+                    </span>
+                    Staff Schedule
+                </a>
+            </li>
+            <li>
+                <a id="reviewReportBtn">
+                    <span class="sidebar-menu-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
+                        </svg>
+                    </span>
+                    Review Report
+                </a>
+            </li>
+            <li>
+                <a id="editReportBtn">
+                    <span class="sidebar-menu-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
+                        </svg>
+                    </span>
+                    Edit Report
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="sidebar-overlay"></div>
+    <div class="watermark-container"></div>
+    <form id="serviceReportForm" class="report-container">
+        <div class="company-header">
+            <div class="company-info">
+                <div class="logo-section">
+                    <img src="../statics/Radical Logo.png" alt="Radical Control" class="company-logo">
+                </div>
+                <div class="company-details">
+                    <div class="company-name-line">
+                        <h2 class="company-name">RADICAL CONTROL SDN BHD</h2>
+                        <span class="company-reg">(801445-P)</span>
+                    </div>
+                    <div class="company-address">
+                        <div>No. 18, Jalan BP 6/13, Bandar Bukit Puchong, 47120 Puchong,</div>
+                        <div>Selangor Darul Ehsan, Malaysia</div>
+                    </div>
+                    <div class="company-contact">
+                        <span>Tel: +603-8052 6989</span>
+                        <span>Fax: +603-8052 7989</span>
+                        <span>Email: sales@rcecontrol.com</span>
+                    </div>
+                    <div class="company-gst">(GST No: 000907784192)</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="report-header">
+            <h1>SERVICE REPORT</h1>
+        </div>
+
+        <div class="section-1">
+            <div class="section-layout">
+                <div class="left-section">
+                    <div class="info-field">
+                        <label for="customer">Customer:</label>
+                        <div class="autocomplete-container">
+                            <input type="text" id="customer" name="customer" class="text-input" autocomplete="off" placeholder="Search">
+                            <div id="customerDropdown" class="autocomplete-dropdown"></div>
+                        </div>
+                    </div>
+                <div class="info-field">
+                        <label for="attn">Attn:</label>
+                        <div class="autocomplete-container">
+                            <input type="text" id="attn" name="attn" class="text-input" autocomplete="off">
+                            <div id="attnDropdown" class="autocomplete-dropdown"></div>
+                        </div>
+                </div>
+                <div class="info-field">
+                        <label for="projectName">Project Name:</label>
+                        <div class="autocomplete-container">
+                            <input type="text" id="projectName" name="projectName" class="text-input" autocomplete="off">
+                            <div id="projectNameDropdown" class="autocomplete-dropdown"></div>
+                        </div>
+                </div>
+                <div class="info-field">
+                        <label for="yourRef">Your Ref:</label>
+                        <div class="autocomplete-container">
+                            <input type="text" id="yourRef" name="yourRef" class="text-input" autocomplete="off">
+                            <div id="yourRefDropdown" class="autocomplete-dropdown"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="right-section">
+                    <div class="info2-field">
+                        <label for="reportNo">Report No:</label>
+                        <input type="text" id="reportNo" name="reportNo" class="text-input" readonly>
+                    </div>
+                    <div class="info2-field">
+                        <label for="date">Date:</label>
+                        <input type="date" id="date" name="date" class="text-input">
+                    </div>
+                    <div class="info2-field">
+                        <label for="serviceBy">Service by:</label>
+                        <div class="autocomplete-container">
+                            <input type="text" id="serviceBy" name="serviceBy" class="text-input" autocomplete="off">
+                            <div id="serviceByDropdown" class="autocomplete-dropdown"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-2">
+            <h3>Purpose of Visit</h3>
+            <div class="purpose-options">
+                <div class="purpose-column">
+                    <div class="checkbox-option">
+                        <input type="radio" id="machine-delivery" name="purpose" value="machine-delivery">
+                        <label for="machine-delivery">Machine Delivery</label>
+                    </div>
+                    <div class="checkbox-option">
+                        <input type="radio" id="commissioning" name="purpose" value="commissioning">
+                        <label for="commissioning">Commissioning / Installation</label>
+                    </div>
+                    <div class="checkbox-option">
+                        <input type="radio" id="maintenance" name="purpose" value="maintenance">
+                        <label for="maintenance">Maintenance / Fine tuning</label>
+                    </div>
+                    <div class="checkbox-option">
+                        <input type="radio" id="calibration" name="purpose" value="calibration">
+                        <label for="calibration">Calibration / Inspection</label>
+                    </div>
+                </div>
+                <div class="purpose-column">
+                    <div class="checkbox-option">
+                        <input type="radio" id="repair" name="purpose" value="repair">
+                        <label for="repair">Repair</label>
+                    </div>
+                    <div class="checkbox-option">
+                        <input type="radio" id="troubleshooting" name="purpose" value="troubleshooting">
+                        <label for="troubleshooting">Troubleshooting</label>
+                    </div>
+                    <div class="checkbox-option">
+                        <input type="radio" id="engineering" name="purpose" value="engineering">
+                        <label for="engineering">Engineering</label>
+                    </div>
+                    <div class="checkbox-option">
+                        <input type="radio" id="others" name="purpose" value="others">
+                        <label for="others">Others</label>
+                        <div id="othersTextContainer" class="others-text-container" style="display: none;">
+                            <input type="text" id="othersText" name="othersText" class="text-input" placeholder="Enter other purpose...">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-device">
+            <h3>Site Information:</h3>
+            <div class="device-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>System / Machine / Line Name</th>
+                            <th>PLC / HMI</th>
+                            <th>Brand</th>
+                            <th>Model Number</th>
+                            <th>Remarks</th>
+                        </tr>
+                    </thead>
+                    <tbody id="deviceTableBody">
+                        <tr>
+                            <td>
+                                <div class="autocomplete-container">
+                                    <input type="text" class="table-input device-input" placeholder="Enter name" autocomplete="off">
+                                    <div class="autocomplete-dropdown"></div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="autocomplete-container">
+                                    <input type="text" class="table-input device-input" placeholder="Enter PLC/HMI" autocomplete="off">
+                                    <div class="autocomplete-dropdown"></div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="autocomplete-container">
+                                    <input type="text" class="table-input device-input" placeholder="Enter brand" autocomplete="off">
+                                    <div class="autocomplete-dropdown"></div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="autocomplete-container">
+                                    <input type="text" class="table-input device-input" placeholder="Enter model number" autocomplete="off">
+                                    <div class="autocomplete-dropdown"></div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="autocomplete-container">
+                                    <input type="text" class="table-input device-input" placeholder="Enter remarks" autocomplete="off">
+                                    <div class="autocomplete-dropdown"></div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="section-4">
+            <h3>Details:</h3>
+            <div id="detailsContainer">
+                <div class="details-card" data-details-index="1">
+                    <div class="details-card-content">
+                        <div class="details-table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Out Time</th>
+                                        <th>Start Time</th>
+                                        <th>End Time</th>
+                                        <th>In Time</th>
+                                        <th>Travel Time</th>
+                                        <th>Work Time</th>
+                                        <th>Over Time</th>
+                                        <th>Mil</th>
+                                        <th>Toll</th>
+                                        <th>Hotel</th>
+                                        <th>Others</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="detailsTableBody">
+                                    <tr>
+                                        <td><input type="date" class="table-input date-input"></td>
+                                        <td><select class="table-input time-select" data-type="out-time"><option value="">--</option></select></td>
+                                        <td><select class="table-input time-select" data-type="start-time"><option value="">--</option></select></td>
+                                        <td><select class="table-input time-select" data-type="end-time"><option value="">--</option></select></td>
+                                        <td><select class="table-input time-select" data-type="in-time"><option value="">--</option></select></td>
+                                        <td><input type="text" class="table-input travel-time" readonly placeholder="Auto"></td>
+                                        <td><input type="text" class="table-input work-time" readonly placeholder="Auto"></td>
+                                        <td><input type="text" class="table-input overtime" readonly placeholder="Auto"></td>
+                                        <td><input type="text" class="table-input mil-input" placeholder="km"></td>
+                                        <td><input type="text" class="table-input toll-input" placeholder="RM"></td>
+                                        <td><input type="text" class="table-input hotel-input" placeholder="RM"></td>
+                                        <td><input type="text" class="table-input others-input"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="description-field">
+                            <h5 class="details-subtitle">Details of Problem</h5>
+                            <textarea class="text-area problem-details" rows="3" placeholder="Describe the problem details..."></textarea>
+                        </div>
+                        <div class="description-field">
+                            <h5 class="details-subtitle">Description of Job Done</h5>
+                            <textarea class="text-area job-description" rows="3" placeholder="Describe the work performed..."></textarea>
+                        </div>
+                        <div class="description-field">
+                            <h5 class="details-subtitle">Photos / Images (Optional)</h5>
+                            <div class="image-upload-container">
+                                <input type="file" class="image-upload-input" multiple accept="image/jpeg,image/jpg,image/png,image/gif,image/webp,image/bmp,image/tiff" style="display: none;">
+                                <div class="image-upload-area">
+                                    <img src="../statics/Upload Icon.png" alt="Upload" class="upload-icon">
+                                    <span class="upload-text">Click to upload images</span>
+                                    <div class="upload-info">
+                                        <small>Max 10 files, 50MB each. Supported: JPEG, PNG, GIF, WebP, BMP, TIFF</small>
+                                    </div>
+                                </div>
+                                <div class="image-preview-container"></div>
+                                <div class="upload-progress" style="display: none;">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill"></div>
+                                    </div>
+                                    <span class="progress-text">Uploading...</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="section-5">
+            <div class="confirmation-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="confirmation-header">Customer's Confirmation</th>
+                            <th class="confirmation-header">For Office Use</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="confirmation-content">
+                                <div class="confirmation-statement">
+                                    I, hereby confirm that the above service have been carried out to my satisfaction.
+                                </div>
+                                <div class="confirmation-section-content">
+                                    <div class="confirmation-row">
+                                        <div class="confirmation-label">Signature:</div>
+                                        <div class="signature-line"></div>
+                                    </div>
+                                    <div class="confirmation-row">
+                                        <div class="confirmation-label">Name:</div>
+                                        <div class="signature-line"></div>
+                                    </div>
+                                    <div class="confirmation-row">
+                                        <div class="confirmation-label">Date:</div>
+                                        <div class="signature-line"></div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="confirmation-content">
+                                <div class="general-remarks-text">
+                                    General Remarks.
+                                </div>
+                                <div class="confirmation-section-content">
+                                    <div class="confirmation-row">
+                                        <div class="confirmation-label">Approved By:</div>
+                                        <div class="signature-line"></div>
+                                    </div>
+                                    <div class="confirmation-row">
+                                        <div class="confirmation-label">Name:</div>
+                                        <div class="signature-line"></div>
+                                    </div>
+                                    <div class="confirmation-row">
+                                        <div class="confirmation-label">Date:</div>
+                                        <div class="signature-line"></div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <div class="form-actions">
+            <button type="button" id="backButton" class="btn btn-create">Home</button>
+            <button type="button" id="updateReportButton" class="btn btn-submit">Update Report</button>
+            <button type="button" id="searchButton" class="btn btn-search">Search</button>
+            <button type="button" id="reviewButton" class="btn btn-review">Review</button>
+        </div>
+    </form>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../scripts/sidebar.js"></script>
+    <script src="../scripts/customer-field.js"></script>
+    <script src="../scripts/siteinfo-table-manager.js"></script>
+    <script src="../scripts/edit-data-loader.js"></script>
+    <script src="../scripts/edit-time-calculator.js"></script>
+    <script src="../scripts/edit-form-populator.js"></script>
+    <script src="../scripts/edit-button-handlers.js"></script>
+    <script src="../scripts/edit-ui-state.js"></script>
+    <script src="../scripts/edit-report.js?v=2"></script>
+    <script src="../scripts/auto-resize.js"></script>
+    <script src="../scripts/search.js"></script>
+    <script src="../scripts/sidebar-search.js"></script>
+    <script src="../scripts/autocomplete.js"></script>
+    <script src="../scripts/autocomplete-init.js"></script>
+    
+</body>
+</html>
