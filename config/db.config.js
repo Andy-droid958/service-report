@@ -1,5 +1,5 @@
 require('dotenv').config();
-const sql = require('mssql/msnodesqlv8');
+const sql = require('mssql');
 
 const config = {
     server: process.env.DB_SERVER,
